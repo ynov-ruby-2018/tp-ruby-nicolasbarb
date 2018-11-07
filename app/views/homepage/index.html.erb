@@ -1,0 +1,22 @@
+<div class="logout">
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+</div>
+<div class="main">
+    <%= "hello #{current_user.email}" %>
+<%= form_tag homepage_index_path method: :post do %>
+  <%= text_area_tag 'commentaire', nil %>
+    <br>
+  <%= submit_tag "Sauvegarder" %>
+<% end %>
+
+<br>
+<br>
+<ul>
+  <% @comments.each do |comment| %>
+    <li>
+      <p><strong><%= %></strong></p>
+      <p><%= comment.content %> </p></li>
+  <% end %>
+</ul>
+</div>
+
